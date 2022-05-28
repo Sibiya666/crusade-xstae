@@ -1,0 +1,15 @@
+.button {
+    padding: 16px 25px;
+    border-radius: 4px;
+    outline: none;
+    border:1px solid rgb(234, 245, 247);
+    background:rgb(29, 112, 112);
+    color: #fff;
+    font-size: 16px;
+    cursor:pointer;
+    
+    &:hover {
+        background:rgb(17, 65, 65);
+        transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    }
+}
