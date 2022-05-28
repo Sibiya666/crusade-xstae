@@ -1,0 +1,23 @@
+.statement {
+    display: grid;
+    grid-template-areas: 
+    "header header header header header"
+    "content content content content aside"
+    "content content content content aside";
+    padding: 24px 32px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.content {
+    grid-area: content;
+}
+
+.aside {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    grid-area: aside;
+}
