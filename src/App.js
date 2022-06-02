@@ -1,9 +1,17 @@
-import {Button} from './modules/shared/components';
+import { Statement } from './modules/statement';
+import { GlobalProvider } from './common/global.context';
+import { inspect } from '@xstate/inspect';
+
+inspect({
+  iframe: false
+});
 
 function App() {
   return (
     <main className="App">
-      <Button></Button>
+      <GlobalProvider>
+        <Statement></Statement>
+      </GlobalProvider>
     </main>
   );
 }
