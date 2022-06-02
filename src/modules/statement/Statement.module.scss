@@ -5,13 +5,17 @@
     "content content content content aside"
     "content content content content aside";
     padding: 24px 32px;
+    gap: 12px
 }
 
 .header {
+    display: flex;
+    align-items: center;
     grid-area: header;
 }
 
 .content {
+    padding: 0 8px;
     grid-area: content;
 }
 
@@ -20,4 +24,13 @@
     gap: 12px;
     flex-direction: column;
     grid-area: aside;
+}
+
+.logo {
+    height: 46px;
+    cursor: pointer
+}
+
+.title {
+    margin-left: 24px;
 }

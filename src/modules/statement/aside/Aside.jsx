@@ -1,23 +1,18 @@
 import { useContext } from 'react';
-import { useActor } from '@xstate/react';
-import { Button } from '../../shared/components';
+import { useSelector } from '@xstate/react';
 import { GlobalContext } from '../../../common/global.context';
+import { isPreparationSelector, isRecrutingSelector } from '../selectors'
+import { Preparation, Recruting } from '../stage/'
 
-export function Aside(props) {
+export function Aside() {
     const globalService = useContext(GlobalContext)
-    const [crusade] = useActor(globalService.crusadeService);
-
+    const isPreparation = useSelector(globalService.crusadeService, isPreparationSelector)
+    const isRecruting = useSelector(globalService.crusadeService, isRecrutingSelector)
+    
     return (
         <>  
-            {crusade.matches('preparation') && <Button>Отправить запрос в инквизицию</Button>}
-            {crusade.matches('preparation.inquisition') && <Button>Заняться подбором войск</Button>}
-
-            {crusade.matches('recruiting.guard') && <Button>Подбор имперской гвардии завершен</Button>}
-            {crusade.matches('recruiting.ordens') && <Button>Выбор ордена завершен</Button>}
-            {crusade.matches('recruiting.mechanicus') && <Button>Отряды механикус присоединяются</Button>}
-            {crusade.matches('recruiting.bibliarium') && <Button>Библиарий благославил</Button>}
-
-            {crusade.matches('transporting.warp') && <Button>Заняться подбором войск</Button>}
+            {isPreparation && <Preparation/>}
+            {isRecruting && <Recruting/>}
         </>
     )
 }
